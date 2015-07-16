@@ -4,12 +4,15 @@
 // but you don't so you're going to write it from scratch:
 
 var stringifyJSON = function(obj) {
-	var output = "";
+	var output = null;
   while (true){
-	  if(typeof obj === "undefined" || typeof obj==="symbol"){
-		  
+	  if(typeof obj === "undefined" || typeof obj==="symbol"){ 
 	  } else if (typeof obj === "object"){
-		  
+		  var objectString = "\{";
+		  for (key in obj){
+			  objectString = objectString.concat(stringifyJSON(key)).concat("\:").concat(stringifyJSON(obj[key]));
+		  }
+		  return objectString.concat("\}")
 	  } else if (typeof obj === "array"){
 		  
 	  }
