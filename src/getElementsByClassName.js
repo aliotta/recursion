@@ -6,7 +6,12 @@
 // But instead we're going to implement it from scratch:
 var getElementsByClassName = function(className){
 	var output = [];
-	var startNode = document.body
+	var startNode = document.body;
+
+	if (startNode.classList.contains(className)){//Check if body has class name
+		output.push(startNode);
+	}
+
 	function recursiveSearch(className){
 		var children = this.childNodes;
 		for (var i=0; i < children.length; i++){
