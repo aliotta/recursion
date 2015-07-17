@@ -16,12 +16,12 @@ var getElementsByClassName = function(className){
 		var children = this.childNodes;
 		for (var i=0; i < children.length; i++){
 			var classes = children[i].classList;
-			if (classes !== undefined && classes.contains(className) === true){
+			if (classes !== undefined && classes.contains(className) === true){ //had to use contains here b/c its a nodelist
 				output.push(children[i]);
 			}
-			recursiveSearch.call(children[i],className);
+			recursiveSearch.call(children[i],className); //recursive call to elements nested deeper
 		}
 	}
-	recursiveSearch.call(startNode, className);
+	recursiveSearch.call(startNode, className); //initiating call to recursive function
 	return output;
 };
